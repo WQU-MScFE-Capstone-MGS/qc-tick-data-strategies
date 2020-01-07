@@ -1,37 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-
-import numpy as np
-import pandas as pd
-import datetime as dt
-import timeit
 import time
 import sys
 import os
+import numpy as np
+import pandas as pd
+import datetime as dt
 
 import multiprocessing as mp
-from multiprocessing import cpu_count
-
-from abc import ABC, abstractmethod
-from collections import namedtuple
-
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import roc_curve, classification_report, confusion_matrix, accuracy_score
-from sklearn.utils import resample
-from sklearn.utils import shuffle
-
-from sklearn.model_selection import cross_val_score
-from sklearn.model_selection import GridSearchCV
-
-import matplotlib.pyplot as plt
-
-np.random.seed(42)
 
 import mlfinlab as ml
 
+np.random.seed(42)
 
+# module to substitute in 'mlfinlab' package
 def new_batch_run(self, verbose=True, to_csv=False, output_path=None):
     """
     Reads a csv file in batches and then constructs the financial data structure in the form of a DataFrame.
@@ -647,16 +630,17 @@ def get_indicators(raw_data):
 
 
 # source folders
-adj_ticks_folder = os.path.expanduser('~/data/5_AdjTicks')
+my_dir = os.getcwd()
+ticks_folder = os.path.join(my_dir, "data/5_AdjTicks")
 
 # destination folder / path to files with dollar bars
-dollar_bars_folder = os.path.expanduser('~/data/6_DollarBars')
+dollar_bars_folder = os.path.join(my_dir, "data/6_DollarBars")
 if os.path.basename(dollar_bars_folder) not in os.listdir(os.path.dirname(dollar_bars_folder)):
     os.mkdir(dollar_bars_folder)
 
 # destination folder / path to files with indicators
 # indicators_folder = os.path.expanduser('~/Downloads/Indicators')
-indicators_folder = os.path.expanduser('~/data/7_Indicators')
+indicators_folder = os.path.join(my_dir, "data/7_Indicators")
 if os.path.basename(indicators_folder) not in os.listdir(os.path.dirname(indicators_folder)):
     os.mkdir(indicators_folder)
 
@@ -667,11 +651,11 @@ print(keys)
 
 est_ticks = 10  # per day
 
-vertical_barrier_days = 3  # days
+vertical_barrier_days = 5  # days
 
 # the following parameters need to be adjusted for particular case
 pt_sl = [1, 2]
-min_ret = 0.2 / 100  # triple_barrier_boundary
+min_ret = 1 / 100  # triple_barrier_boundary
 
 # sma
 fast = 20

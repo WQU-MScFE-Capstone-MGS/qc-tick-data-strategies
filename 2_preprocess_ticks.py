@@ -5,12 +5,13 @@ import datetime as dt
 
 from multiprocessing import Pool
 
-
-my_dir = os.path.expanduser('~/data/1_RawTicks')
-target_folder = os.path.expanduser("~/data/4_Ticks")
+my_dir = os.getcwd()
+raw_tick_dir = os.path.join(my_dir, "data/1_RawTicks")
+target_folder = os.path.join(my_dir, "data/4_Ticks")
 
 if os.path.basename(target_folder) not in os.listdir(os.path.dirname(target_folder)):
     os.mkdir(target_folder)
+
 
 def check_breaks(file_names):
     end = dt.datetime.strptime(file_names[0][-10:-4], "%y%m%d")
@@ -28,7 +29,6 @@ def check_breaks(file_names):
 
 
 def get_csv(file):
-
     global source_folder
     file_path = os.path.join(source_folder, file)
 
@@ -54,13 +54,13 @@ def get_csv(file):
 
 if __name__ == '__main__':
 
-    keys = [key for key in os.listdir(my_dir) if not key.startswith(".")]
+    keys = [key for key in os.listdir(raw_tick_dir) if not key.startswith(".")]
     print(keys)
 
     for key in keys:
         print(key)
 
-        source_folder = os.path.join(my_dir, key)
+        source_folder = os.path.join(raw_tick_dir, key)
 
         files = [file for file in os.listdir(source_folder) if file.startswith(key + '_') and not file.endswith("part")]
         files.sort()

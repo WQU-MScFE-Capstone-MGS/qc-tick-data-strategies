@@ -333,12 +333,10 @@ BLUE_CHIPS_DICT = dict(GAZP='ГАЗПРОМ ао', SBER='Сбербанк', LKOH
 
 
 def main():
-    my_dir = os.path.expanduser('~/Downloads/data')
-    dir_name = "1_RawTicks"
+    my_dir = os.getcwd()
+    folder = os.path.join(my_dir, "data/1_RawTicks")
 
-    folder = os.path.join(my_dir, dir_name)
-
-    if dir_name not in os.listdir(my_dir):
+    if os.path.basename(folder) not in os.listdir(os.path.dirname(folder)):
         os.mkdir(folder)
 
     if len(sys.argv) > 1:

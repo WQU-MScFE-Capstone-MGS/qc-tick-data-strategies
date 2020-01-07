@@ -6,11 +6,12 @@ import pandas as pd
 import datetime as dt
 
 from multiprocessing import Pool
+my_dir = os.getcwd()
 
-ticks_folder = os.path.expanduser("~/data/4_Ticks")
-dividends_folder = os.path.expanduser("~/data/3_Dividends")
+ticks_folder = os.path.join(my_dir, "data/4_Ticks")
+dividends_folder = os.path.join(my_dir, "data/3_Dividends")
 
-adj_ticks_folder = os.path.expanduser("~/data/5_AdjTicks")
+adj_ticks_folder = os.path.join(my_dir, "data/5_AdjTicks")
 
 if os.path.basename(adj_ticks_folder) not in os.listdir(os.path.dirname(adj_ticks_folder)):
     os.mkdir(adj_ticks_folder)
@@ -35,12 +36,11 @@ for key in keys:
         dividends_due = dividends[((dividends.index < ticks.index[-1]) & (dividends.index > ticks.index[0]))]
         ss = pd.Series(ticks.index).searchsorted(dividends_due.index)
         for_backward_roll = ticks.iloc[(ss - 1)]
-        print(for_backward_roll)
+        # print(for_backward_roll)
 
         dividends_due["Coef"] = 0.
         for i in range(len(dividends_due)):
             dividends_due.iloc[i, 1] = 1 - dividends_due.iloc[i, 0] / for_backward_roll.price.iloc[i]
-            # [i]  # to_adj.shift(1).loc[div.index[i]]
 
         adj_ticks = ticks.copy()
         for i in range(len(dividends_due)):
