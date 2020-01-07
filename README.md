@@ -56,6 +56,8 @@ After the algorithm opens the firefox window, the frequency of the data ('ticks'
 
 Algorithm will dowload chunks of data in .csv files withing size limit of around 41.6kb into folders named by symbol into '1_RawTicks' folder.
 
+This web-site _does not_ provide data to download every day from 7:00am to 3:00pm GMT.
+
 Alternatavly, raw tick data for this research can be reached in [Box folder](https://app.box.com/s/fwau5uwsrvn4lgwfwpvkf9zwnxo24k82)
 
 
