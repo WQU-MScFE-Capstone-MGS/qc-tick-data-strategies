@@ -27,7 +27,13 @@ QCTickDataStrategy.py
 </pre>
 
 
-To create python environment one needs to use conda and use 'requirements.txt'. This environment should be built on python verios 3.6. It will be used for running python scripts as well as for LEAN Engine.
+To create python environment one needs to use conda and use 'requirements.txt'. This environment should be built on python verios 3.6.
+
+<code>conda create --name QC python=3.6
+conda activate QC
+pip install -r requirements.txt</code>
+
+It will be used for running python scripts as well as for LEAN Engine.
 
 
 ## Data Download
