@@ -11,13 +11,13 @@ data
     |__ ...
 |__ 3_Dividends
     |__ ...
-|__ 2_Ticks
+|__ 4_Ticks
     |__ ...
-|__ 3_AdjTicks
+|__ 5_AdjTicks
     |__ ...
-|__ 4_DollarBars
+|__ 6_DollarBars
     |__ ...
-|__ 5_Indicators
+|__ 7_Indicators
     |__ ...
 1_get_tick_data.py
 2_preprocess_ticks.py
@@ -29,9 +29,9 @@ QCTickDataStrategy.py
 
 To create python environment one needs to use conda and use 'requirements.txt'. This environment should be built on python verios 3.6.
 
-<code>conda create --name QC python=3.6
-conda activate QC
-pip install -r requirements.txt</code>
+<code>conda create --name QC python=3.6.6</code>
+<code>conda activate QC</code>
+<code>pip install -r requirements.txt</code>
 
 It will be used for running python scripts as well as for LEAN Engine.
 
