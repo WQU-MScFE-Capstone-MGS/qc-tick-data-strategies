@@ -54,7 +54,7 @@ To start downloading process one needs to run '1_get_tick_data.py' from command 
 
 After the algorithm opens the firefox window, the frequency of the data ('ticks') and the output format ('.csv') need to be selected manually. In addition, one needs to select 'save to file' and select a checkbox 'repeat for the next occurencies'. All this need to be done onces.
 
-Algorithm will dowload chunks of data in .csv files withing size limit of around 41.6kb into folders named by symbol into '1_RawTicks' folder.
+Algorithm will dowload chunks of data in .csv files withing size limit of around 41.6Mb into folders named by symbol into '1_RawTicks' folder.
 
 This web-site _does not_ provide data to download every day from 7:00am to 3:00pm GMT.
 
