@@ -34,7 +34,7 @@ To create python environment one needs to use conda and use 'requirements.txt'. 
 
 This script was tested on Ubuntu 18.04 and MacOs (Mojave, Catalina) with FireFox browser.
 
-To download the data one required to have selenium webdrive installed. Instructions for that could be found here: https://selenium-python.readthedocs.io/installation.html#drivers
+To download the data one required to have selenium webdrive installed. Instructions for that could be found [here](https://selenium-python.readthedocs.io/installation.html#drivers)
 
 Among blue chips and MOEX index constituents the following assets were chosen for the analysis:
 'AFKS', 'ALRS', 'CHMF', 'GAZP', 'GMKN', 'LKOH', 'MGNT', 'MTSS', 'NVTK', 'ROSN', 'RTKM', 'SBER', 'SNGS', 'TATN', 'VRBR', 'YNDX'
